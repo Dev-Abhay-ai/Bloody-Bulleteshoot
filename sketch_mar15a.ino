@@ -1,11 +1,11 @@
 #include <Servo.h>
 
-Servo myServo;  // Create a servo object
-const int servoPin = 8;  // Pin where servo is connected
+Servo myServo;
+const int servoPin = 8; 
 
 void setup() {
-  myServo.attach(servoPin);  // Attaches the servo on specified pin
-  Serial.begin(9600);        // Initialize serial communication
+  myServo.attach(servoPin);
+  Serial.begin(9600);
   Serial.println("Servo Direct Movement Program Started");
 }
 
@@ -18,20 +18,18 @@ void loop() {
         message.trim();
         
         Serial.print("Received: ");  
-        Serial.println(message);  // Show in Web Serial Monitor
+        Serial.println(message);
   
         if (message == "WIN") {
             myServo.write(0);
-  delay(2000);  // Wait 1 second
+  delay(2000);
   
-  // Move to 180 degrees
   myServo.write(180);
   delay(2000);
-            Serial.println("LED ON 🎉");  // Send status back
+            Serial.println("LED ON 🎉");
         } else if (message == "LOSE") {
             
             Serial.println("LED OFF 😞");
         }
     }
- // Wait 1 second
 }
